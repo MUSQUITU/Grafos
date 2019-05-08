@@ -1,0 +1,3 @@
+
+    getAdjlList(){
+      return this.adjL

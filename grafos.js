@@ -1,33 +1,15 @@
-// função dicionario
-/*import {defaultToString} from '../util'
-export class Dictionary{
-  constructor (){
-    this.vertices={}
-  }
-}
-export function defaultToString(item){
-  if(item === null){
-    return 'NULL'
-  }
-  else if (item === undefined) {
-    return 'UNDEFINED'
-  }
-  else if (typeof item === 'string' || item instanceof String) {
-    return `${item}`
-  }
-  return item.toString
-}*/
-    class dicionario{
-    //  construtor(adjList){
 
-  //    }
+    class dicionario{
+    construtor(adjList, vertices){
+      this.adjList = adjList
+      this.vertices = vertices
+      }
       set(adjList, vertices){
       }
       get(adjList, vertices){
       }
 
       }
-
 
   class Graph{
     constructor(ehDirecionado = false){
@@ -37,7 +19,9 @@ export function defaultToString(item){
       this.vertices= []
       //ARMAZENAR A LISTA DE ADJACENCIAS [chave=vertices, valor=vertices adj]
       this.adjList = new dicionario()
+
     }
+
     //add novo vertice
     addVertex(v){
         if(!this.vertices.includes(v)){
@@ -48,7 +32,7 @@ export function defaultToString(item){
       }
     }
     //recebe dois vertices que queremos ligar no grafo
-    addEdge(v,w){
+    addEdge(v, w){
       //verifica se os vertices tão no grafo, se ñ serão add a lista de vertices
       if(!this.adjList.get(v)){
         this.addVertex(v)
@@ -76,7 +60,7 @@ export function defaultToString(item){
       let s =''
       for(let i = 0; i< this.vertices.length; i++){
         s += `${this.vertices[i]} ->`
-        const vizinhos = this.adjList.get(this.vertices[i])
+        const vizinhos = [this.adjList.get(this.vertices[i])]
         for( let j = 0; j < vizinhos.length; j++){
           s += `${vizinhos[j]}`
       }
@@ -84,8 +68,8 @@ export function defaultToString(item){
     }
       return s
     }
-}
-
+  }
+    //teste
     const graph = new Graph()
     const MeusVertices = ['A','B','C','D','E','F','G','H','I']
     for(let i=0; i < MeusVertices.length; i++){
